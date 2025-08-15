@@ -1,15 +1,43 @@
 package Java;
+import java.util.Scanner;
 
 public class i_DeclarationAndAccessControl {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    public static int[] arrInt;
+
+    public static void oddAndEven(int[] arrInt, int arrLength){
+        for(int i=0, j=arrLength-1; i<arrLength/2; i++, j--){
+            if(arrInt[i]%2 ==0 && arrInt[j]%2 !=0){
+                int temp = arrInt[i];
+                arrInt[i]=arrInt[j];
+                arrInt[j]=temp;
+            }
+            if(arrInt[i]%2 != 0 && arrInt[j]%2 ==0)
+                continue;
+
+            if(arrInt[i]%2 ==0 && arrInt[j]%2 ==0)
+                i--;
+
+            if(arrInt[i]%2 !=0 && arrInt[j]%2 !=0)
+                j++;
         }
+
+        System.out.print("Arranged elements of the array : ");
+        for (int i: arrInt)
+            System.out.print(i+ " ");
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Size of the array :  ");
+        Scanner sc = new Scanner(System.in);
+        int arrLength = sc.nextInt();
+        arrInt= new int[arrLength];
+
+        System.out.print("Elements of the array : ");
+        for (int i = 0; i < arrLength; i++)
+            arrInt[i]=sc.nextInt();
+
+        sc.close();
+        oddAndEven(arrInt, arrLength);
     }
 }
