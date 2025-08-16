@@ -7,19 +7,22 @@ public class i_DeclarationAndAccessControl {
 
     public static void oddAndEven(int[] arrInt, int arrLength){
         for(int i=0, j=arrLength-1; i<arrLength/2; i++, j--){
+            int m=i;
+            int n=j;
+
             if(arrInt[i]%2 ==0 && arrInt[j]%2 !=0){
-                int temp = arrInt[i];
-                arrInt[i]=arrInt[j];
-                arrInt[j]=temp;
+                int temp = arrInt[m];
+                arrInt[m]=arrInt[n];
+                arrInt[n]=temp;
             }
             if(arrInt[i]%2 != 0 && arrInt[j]%2 ==0)
                 continue;
 
             if(arrInt[i]%2 ==0 && arrInt[j]%2 ==0)
-                i--;
+                m--;
 
             if(arrInt[i]%2 !=0 && arrInt[j]%2 !=0)
-                j++;
+                n++;
         }
 
         System.out.print("Arranged elements of the array : ");
