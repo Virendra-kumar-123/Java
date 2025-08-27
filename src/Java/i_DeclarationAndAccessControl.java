@@ -5,24 +5,24 @@ public class i_DeclarationAndAccessControl {
 
     public static int[] arrInt;
 
+     public void go(){
+        System.out.print("Size of the array :  ");
+    }
     public static void oddAndEven(int[] arrInt, int arrLength){
         for(int i=0, j=arrLength-1; i<arrLength/2; i++, j--){
-            int m=i;
-            int n=j;
-
             if(arrInt[i]%2 ==0 && arrInt[j]%2 !=0){
-                int temp = arrInt[m];
-                arrInt[m]=arrInt[n];
-                arrInt[n]=temp;
+                int temp = arrInt[i];
+                arrInt[i]=arrInt[j];
+                arrInt[j]=temp;
             }
             if(arrInt[i]%2 != 0 && arrInt[j]%2 ==0)
                 continue;
 
             if(arrInt[i]%2 ==0 && arrInt[j]%2 ==0)
-                m--;
+                i--;
 
             if(arrInt[i]%2 !=0 && arrInt[j]%2 !=0)
-                n++;
+                j++;
         }
 
         System.out.print("Arranged elements of the array : ");
